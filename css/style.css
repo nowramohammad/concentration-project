@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: gray;
+    color: rgb(246, 255, 0);
+    margin: 0;
+    padding: 20px;
+
+}
+.game-container {
+    display: grid;
+    margin: 20px;
+   justify-content: center;
+   
+
+}
+.card {
+    width: 60px;
+    height: 80px;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    background-color: aquamarine;
+
+}
+.card.flipped {
+background-color: antiquewhite;
+color:rgb(246, 255, 0);
+
+}
