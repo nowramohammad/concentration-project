@@ -21,10 +21,22 @@ body {
     display: flex;
     cursor: pointer;
     background-color: aquamarine;
+    justify-content: center;
+    transition: backround-color yellow;
+    border-radius: 20px;
 
 }
 .card.flipped {
 background-color: antiquewhite;
 color:rgb(246, 255, 0);
 
+}
+.buttons{
+    background-color: navajowhite;
+    font-size: medium;
+    color:black;
+    width: 1000px;
+    height: 1000px;
+
+    
 }

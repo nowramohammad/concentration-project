@@ -10,3 +10,4 @@ let matchedPairs = 0;
 let remainingAttempts = 3;
 let timeleft = 30;
 let timer;
+
