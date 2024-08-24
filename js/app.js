@@ -12,9 +12,9 @@ const images = ["IMG_0832.JPG",
     "IMG_0842.JPG"]
     const gameContainer = document.getElementById('game-container');
     const timeLeftElement = document.getElementById("time-left");
-    let timeLeft = 30;
+    let timeLeft = 60;
     let timer;
-    let matchedPairs = [];
+    let matchedPairs = 0;
     let remainingAttempts = 6;
     let flippedCards = [ ];
 
@@ -28,13 +28,14 @@ function flipCard() {
     //console.log('click', this);
      if (flippedCards.length < 2 && !this.classList.contains("flipped")) {
          this.classList.add('flipped');
-         console.log(this);
+         //console.log(this);
          flippedCards.push(this);
          if (flippedCards.length === 2) {
              checkForMatch();
          }
      }
   }
+  
   function startGame() {
     let  shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
     //let flippedCards = [ ];
@@ -71,11 +72,11 @@ function flipCard() {
         function checkForMatch() {
             const [card1, card2] = flippedCards;
             if (card1.dataset.image === card2.dataset.image) {
-                //matchedPairs++;
-                card1.removeEventListener("click", flipCard);
-                card2.removeEventListener("click", flipCard);
+                matchedPairs++;
+                //card1.removeEventListener("click", flipCard);
+                //card2.removeEventListener("click", flipCard);
                 flippedCards =[];
-                //if (matchedPairs === images.length) {
+                if (matchedPairs === images.length) {
                     endGame(true);
                 
             } else {
@@ -86,11 +87,13 @@ function flipCard() {
                     card2.classList.remove("flipped");
                     flippedCards = [];
                 }, 1000);
-                if (remainingAttempts === 0) {
+                if (remainingAttempts <= 0) {
                     endGame(false);
                 }
             }
         }
+    }
+        
         function endGame(won) {
             clearInterval(timer);
             messageElement.innerText = won? "YOU WIN" : "YOU LOSE!"; 
@@ -104,9 +107,8 @@ function flipCard() {
         }
           function resetGame() {
             startGame();
-            clearInterval(timer);
-           matchedPairs = 0;
-           flippedCards = [ ];
-          }
+            }
+            resetButton.addEventListener('click', resetGame);
+           
           startGame();
         
