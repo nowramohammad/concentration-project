@@ -12,12 +12,12 @@ const images = ["IMG_0832.JPG",
     "IMG_0842.JPG"]
     const gameContainer = document.getElementById('game-container');
     const timeLeftElement = document.getElementById("time-left");
-    let timeLeft = 60;
+    let timeLeft = 30;
     let timer;
     let matchedPairs = [];
     let remainingAttempts = 6;
     let flippedCards = [ ];
-    
+
     const messageElement = document.getElementById("message");
 const remainingAttemptsElement = document.getElementById('remaining-attempts');
 //const resetGame = document.getElementById("reset").onclick = reset;
@@ -70,7 +70,7 @@ function flipCard() {
 
         function checkForMatch() {
             const [card1, card2] = flippedCards;
-            if (card1.dataset.omage === card2.dataset.image) {
+            if (card1.dataset.image === card2.dataset.image) {
                 //matchedPairs++;
                 card1.removeEventListener("click", flipCard);
                 card2.removeEventListener("click", flipCard);
