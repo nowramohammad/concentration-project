@@ -49,11 +49,11 @@ body {
 display: block;
 opacity: 100%;
 }
-@media (max-width: 100px) { 
-    .box { 
-        flex: 1 1 100%; 
+/*@media (max-width: 100px) { 
+   #game-container  { 
+        max-width: 200px;
     } 
-} 
+} */
 
 /*.card .clicked{
     background-color: rgb(1, 14, 20);
