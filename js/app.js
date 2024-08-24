@@ -10,6 +10,7 @@ const images = ["IMG_0832.JPG",
     "IMG_0840.JPG",
     "IMG_0841.JPG",
     "IMG_0842.JPG"]
+    const resetButton = document.getElementById('reset-button');
     const gameContainer = document.getElementById('game-container');
     const timeLeftElement = document.getElementById("time-left");
     let timeLeft = 60;
@@ -71,28 +72,33 @@ function flipCard() {
 
         function checkForMatch() {
             const [card1, card2] = flippedCards;
+            
+            // Check if the flipped cards match
             if (card1.dataset.image === card2.dataset.image) {
                 matchedPairs++;
-                //card1.removeEventListener("click", flipCard);
-                //card2.removeEventListener("click", flipCard);
-                flippedCards =[];
-                if (matchedPairs === images.length) {
-                    endGame(true);
+                flippedCards = []; // Clear the flipped cards array
                 
+                // Check if the player has matched all pairs
+                if (matchedPairs === images.length) {
+                    endGame(true); // End the game if all pairs are matched
+                }
             } else {
-                remainingAttempts--;
-                remainingAttemptsElement.innerText = remainingAttempts;
+                // If cards don't match, flip them back after a short delay
                 setTimeout(() => {
                     card1.classList.remove("flipped");
                     card2.classList.remove("flipped");
-                    flippedCards = [];
-                }, 1000);
+                    flippedCards = []; // Clear the flipped cards array after flipping them back
+                }, 1000); // 1 second delay to show the cards before flipping them back
+                
+                remainingAttempts--; // Reduce attempts
+                remainingAttemptsElement.innerText = remainingAttempts;
+                
+                // Check if there are no remaining attempts
                 if (remainingAttempts <= 0) {
-                    endGame(false);
+                    endGame(false); // End the game if no attempts are left
                 }
             }
         }
-    }
         
         function endGame(won) {
             clearInterval(timer);
@@ -107,6 +113,10 @@ function flipCard() {
         }
           function resetGame() {
             startGame();
+            clearInterval(timer);
+            matchedPairs = 0;
+            flippedCards = [ ];
+            remainingAttempts = 6
             }
             resetButton.addEventListener('click', resetGame);
            
