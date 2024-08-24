@@ -1,25 +1,23 @@
-* 
-{
-margin: 0;
-padding: 0;
-}
-
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    display: flex;
+    color: rgb(114, 251, 2);
+    margin: 0;
+    padding: 20px;
     background-image: url("/IMG_0851.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-.container {
+#game-container {
     display: grid;
     margin: 20px auto; 
-    
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
 }
 
-#cards {
+.cards {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     display: grid;
@@ -33,9 +31,9 @@ body {
     border-radius: 20px;
     cursor: pointer;
 }
-.card:hover {
+/*.card:hover {
     transition: scale(a.03);
-}
+}*/
 .card img {
     width: 100%;
     height: 100%;
@@ -43,16 +41,21 @@ body {
    border-radius: 20px;
    align-items: center;
    transition: 0.3s all ease;
-   opacity: 0;
+    opacity: 0;
    
 }
 
-/*#card.flipped {
-transform: rotateY(180deg);}*/
+.card.flipped img {
+display: block;
+opacity: 100%;
+}
 
-.card .clicked{
+
+/*.card .clicked{
     background-color: rgb(1, 14, 20);
+    background-size: cover;
     
+    background-position: center;
 }
 .card.checked {
     background-color: blueviolet;
@@ -63,43 +66,7 @@ transform: rotateY(180deg);}*/
 }
 .card.shake {
     background-color: rgb(241, 63, 14);
-    animation: shake 0.5s;
-}
-@keyframes shake {
-    0% {
-      transform: translate(1px, 1px) rotate(0deg);
-    }
-    10% {
-      transform: translate(-1px, -2px) rotate(-1deg);
-    }
-    20% {
-      transform: translate(-3px, 0px) rotate(1deg);
-    }
-    30% {
-      transform: translate(3px, 2px) rotate(0deg);
-    }
-    40% {
-      transform: translate(1px, -1px) rotate(1deg);
-    }
-    50% {
-      transform: translate(-1px, 2px) rotate(-1deg);
-    }
-    60% {
-      transform: translate(-3px, 1px) rotate(0deg);
-    }
-    70% {
-      transform: translate(3px, 1px) rotate(-1deg);
-    }
-    80% {
-      transform: translate(-1px, -1px) rotate(1deg);
-    }
-    90% {
-      transform: translate(1px, 2px) rotate(0deg);
-    }
-    100% {
-      transform: translate(1px, -2px) rotate(-1deg);
-    }
-  }
+}*/
 /*.buttonss {
     background-color: rgb(242, 148, 8);
     font-size: medium;
@@ -109,14 +76,29 @@ transform: rotateY(180deg);}*/
 
     
 }*/
-#actions {
+/*.actions {
     display: flex;
     justify-content: center;
-}
-.actions button {
+}*/
+.reset-button {
     padding: 8px 16px;
     font-size: 30px;
     border-radius: 10px;
     background-color: rgb(98, 187, 217);
     color: white;
+    transition: background-color 0.3s;
+}
+.reset-button:hover {
+    background-color: rgb(30, 167, 177);
+}
+
+
+.message {
+    font-size: 1.5em;
+    margin-top: 20px;
+    background-color: red;;
+}
+.timer, .attempts {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
