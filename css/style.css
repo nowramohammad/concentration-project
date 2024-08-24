@@ -49,11 +49,11 @@ body {
 display: block;
 opacity: 100%;
 }
-/*@media (max-width: 100px) { 
+@media (max-width: 500px) { 
    #game-container  { 
         max-width: 200px;
     } 
-} */
+} 
 
 /*.card .clicked{
     background-color: rgb(1, 14, 20);
@@ -84,7 +84,7 @@ opacity: 100%;
     display: flex;
     justify-content: center;
 }*/
-.reset-button {
+#reset-button {
     padding: 8px 16px;
     font-size: 30px;
     border-radius: 10px;
@@ -92,9 +92,9 @@ opacity: 100%;
     color: white;
     transition: background-color 0.3s;
 }
-.reset-button:hover {
+/*.reset-button:hover {
     background-color: rgb(30, 167, 177);
-}
+}*/
 
 
 .message {
