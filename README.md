@@ -1,6 +1,6 @@
-<h1>concentration-project
+<h1 align="center">concentration-project
 </h1>
-<h2>Memory Game</h2>
+<h2 align="center" >Memory Game</h2>
 <h3>How to play game:</h3>
 <h4>There will be 20 cards (2 card are same) each card will have an emoji separated, 
   the player need to memorize each one place, they will have one min or three tries.
