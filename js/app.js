@@ -28,7 +28,7 @@ function flipCard() {
     //console.log('click', this);
      if (flippedCards.length < 2 && !this.classList.contains("flipped")) {
          this.classList.add('flipped');
-         //console.log(this);
+         console.log(this);
          flippedCards.push(this);
          if (flippedCards.length === 2) {
              checkForMatch();
