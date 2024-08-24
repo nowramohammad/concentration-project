@@ -12,14 +12,15 @@ const gameContainer = document.getElementById('game-container');
 const timeLeftElement = document.getElementById("time-left");
 const messageElement = document.getElementById("message");
 const remainingAttemptsElement = document.getElementById('remaining-attempts');
-let timeLeft = 30;
+//const resetGame = document.getElementById("reset").onclick = reset;
+let timeLeft = 60;
 let timer;
 let flippedCards = [ ];
 let matchedPairs = 0;
 let remainingAttempts = 3;
 let shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
-//function startGame () {
-    function initializeGame() {
+
+    function startGame() {
 let shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
 //let flippedCards = [ ];
         timeLeftElement.innerText = timeLeft;
@@ -66,14 +67,15 @@ let shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
  function checkForMatch() {
     const [card1, card2] = flippedCards;
     if (card1.dataset.omage === card2.dataset.image) {
-        matchedPairs++;
+        //matchedPairs++;
         card1.removeEventListener("click", flipCard);
         card2.removeEventListener("click", flipCard);
         flippedCards =[];
-        if (matchedPairs === images.length) {
+        //if (matchedPairs === images.length) {
             endGame(true);
-        }
+        
     } else {
+        remainingAttempts--;
         remainingAttemptsElement.innerText = remainingAttempts;
         setTimeout(() => {
             card1.classList.remove("flipped");
@@ -84,7 +86,7 @@ let shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
             endGame(false);
         }
     }
- }
+}
   function endGame(won) {
     clearInterval(timer);
     messageElement.innerText = won? "YOU WIN" : "YOU LOSE!"; 
@@ -97,9 +99,9 @@ let shuffledImages = [...images, ...images ].sort(() => 0.3 - Math.random());
 
 }
   function resetGame() {
-    
+    startGame();
     clearInterval(timer);
    matchedPairs = 0;
    flippedCards = [ ];
   }
-  initializeGame();
+  startGame();
